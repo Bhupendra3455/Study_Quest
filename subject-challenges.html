@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subject Challenges - Study Focus</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="subject-challenges.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Study Focus</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="shop.html" class="nav-link">
+                    <i class="fas fa-store"></i> Shop
+                </a>
+                <a href="inventory.html" class="nav-link">
+                    <i class="fas fa-box-open"></i> Inventory
+                </a>
+                <a href="subject-challenges.html" class="nav-link active">
+                    <i class="fas fa-trophy"></i> Subject Challenges
+                </a>
+            </div>
+            <div class="nav-profile">
+                <div class="profile-avatar">
+                    <img src="default-avatar.png" alt="Profile Avatar" id="profile-avatar">
+                </div>
+                <div class="coin-display">
+                    <i class="fas fa-coins"></i>
+                    <span id="coin-balance">1000</span>
+                </div>
+                <div class="level-display">
+                    <i class="fas fa-star"></i>
+                    <span id="level-display">Level 1</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="challenges-header">
+            <h1>Subject Challenges</h1>
+            <p>Complete subject-specific challenges to earn rewards and level up!</p>
+        </div>
+
+        <!-- Subject Categories -->
+        <div class="subject-categories">
+            <button class="subject-btn active" data-subject="all">
+                <i class="fas fa-globe"></i>
+                All Subjects
+            </button>
+            <button class="subject-btn" data-subject="math">
+                <i class="fas fa-calculator"></i>
+                Mathematics
+            </button>
+            <button class="subject-btn" data-subject="science">
+                <i class="fas fa-flask"></i>
+                Science
+            </button>
+            <button class="subject-btn" data-subject="english">
+                <i class="fas fa-book"></i>
+                English
+            </button>
+            <button class="subject-btn" data-subject="history">
+                <i class="fas fa-landmark"></i>
+                History
+            </button>
+        </div>
+
+        <!-- Challenges Grid -->
+        <div class="challenges-grid">
+            <!-- Challenges will be dynamically populated here -->
+        </div>
+    </div>
+
+    <!-- Challenge Modal -->
+    <div id="challenge-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="challenge-details"></div>
+            <div class="modal-buttons">
+                <button id="start-challenge" class="btn primary-btn">Start Challenge</button>
+                <button id="close-challenge" class="btn secondary-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Study Assistant -->
+    <div id="ai-assistant" class="ai-assistant">
+        <div class="ai-header">
+            <h3>AI Study Assistant</h3>
+            <button id="toggle-ai">
+                <i class="fas fa-chevron-down"></i>
+            </button>
+        </div>
+        <div class="ai-content">
+            <div id="ai-messages" class="ai-messages"></div>
+            <div class="ai-input">
+                <input type="text" id="ai-input" placeholder="Ask for help with your challenge...">
+                <button id="send-ai-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="subject-challenges.js"></script>
+</body>
+</html> 

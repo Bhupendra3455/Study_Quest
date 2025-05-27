@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Study Focus</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <div class="topbarout">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a></li>
+                <li><a href="shop.html"><i class="fas fa-store"></i> Shop</a></li>
+                <li><a href="inventory.html"><i class="fas fa-backpack"></i> Inventory</a></li>
+                <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+            </div>
+            <div class="topbarout">
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </li>
+                <li><button id="logout"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="avatar-container">
+                    <img id="user-avatar" src="theme/avatars/default.png" alt="User Avatar">
+                    <div class="level-badge" id="level-number">1</div>
+                </div>
+                <h2 id="username-display">Username</h2>
+                <div class="stats-container">
+                    <div class="coins-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="coins">0</span>
+                    </div>
+                    <div class="experience-container">
+                        <div class="experience-bar">
+                            <div class="experience-fill" id="experience-fill"></div>
+                        </div>
+                        <div class="experience-text">
+                            <span id="experience">0</span> / <span id="next-level">100</span> XP
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="settings-section">
+                <h2><i class="fas fa-cog"></i> Settings</h2>
+                
+                <!-- Account Settings -->
+                <div class="settings-card">
+                    <h3><i class="fas fa-user"></i> Account Settings</h3>
+                    <div class="settings-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter new username">
+                        <button class="settings-btn" onclick="updateUsername()">Update Username</button>
+                    </div>
+                    <div class="settings-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter new email">
+                        <button class="settings-btn" onclick="updateEmail()">Update Email</button>
+                    </div>
+                    <div class="settings-group">
+                        <label for="password">New Password</label>
+                        <input type="password" id="password" placeholder="Enter new password">
+                        <button class="settings-btn" onclick="updatePassword()">Update Password</button>
+                    </div>
+                </div>
+
+                <!-- Notification Settings -->
+                <div class="settings-card">
+                    <h3><i class="fas fa-bell"></i> Notification Settings</h3>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="challenge-notifications" checked>
+                            <span class="toggle-text">Challenge Reminders</span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="level-up-notifications" checked>
+                            <span class="toggle-text">Level Up Notifications</span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="daily-goals-notifications" checked>
+                            <span class="toggle-text">Daily Goals Reminders</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Study Preferences -->
+                <div class="settings-card">
+                    <h3><i class="fas fa-book"></i> Study Preferences</h3>
+                    <div class="settings-group">
+                        <label for="study-duration">Default Study Duration (minutes)</label>
+                        <input type="number" id="study-duration" min="5" max="120" value="25">
+                    </div>
+                    <div class="settings-group">
+                        <label for="break-duration">Default Break Duration (minutes)</label>
+                        <input type="number" id="break-duration" min="1" max="30" value="5">
+                    </div>
+                    <div class="settings-group">
+                        <label for="daily-goal">Daily Study Goal (hours)</label>
+                        <input type="number" id="daily-goal" min="1" max="12" value="4">
+                    </div>
+                    <button class="settings-btn" onclick="saveStudyPreferences()">Save Preferences</button>
+                </div>
+
+                <!-- Privacy Settings -->
+                <div class="settings-card">
+                    <h3><i class="fas fa-shield-alt"></i> Privacy Settings</h3>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="profile-visibility" checked>
+                            <span class="toggle-text">Public Profile</span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="progress-sharing" checked>
+                            <span class="toggle-text">Share Progress</span>
+                        </label>
+                    </div>
+                    <div class="settings-group">
+                        <label class="toggle-label">
+                            <input type="checkbox" id="achievement-sharing" checked>
+                            <span class="toggle-text">Share Achievements</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Data Management -->
+                <div class="settings-card">
+                    <h3><i class="fas fa-database"></i> Data Management</h3>
+                    <div class="settings-group">
+                        <button class="settings-btn danger" onclick="exportData()">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+                    <div class="settings-group">
+                        <button class="settings-btn danger" onclick="clearData()">
+                            <i class="fas fa-trash"></i> Clear All Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <div class="rank-section">
+                <h3>Your Rank</h3>
+                <div class="rank-display">
+                    <div class="rank-image-container">
+                        <img id="rank-image" src="theme/ranks/novice.png" alt="Rank">
+                    </div>
+                    <div class="rank-name" id="rank-name">Novice</div>
+                    <div class="rank-progress">
+                        <div class="progress-bar">
+                            <div id="rank-progress-fill"></div>
+                        </div>
+                        <p id="rank-progress-text">0%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html> 

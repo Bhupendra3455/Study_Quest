@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Quest - Your Learning Adventure</title>
+  <link rel="stylesheet" href="style2.css">
+ 
+  <link rel="stylesheet" href="challenges.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="navbar">
+    <ul class="checkbox">
+      <li> <input type="checkbox" id="drop">
+        <label for="drop" class="button">
+          <span></span>
+          <span></span>
+          <span></span>
+
+        </label>
+        <div class="dropdown">
+          <ul id="subject-list">
+            <!-- Subjects will be populated dynamically -->
+             <li><a href="#" id="chatbot-trigger">Chatbot</a></li>
+             
+             <li><a href="study-room.html" class="nav-link" data-section="study-room">Study Room</a></li>
+             <li><a href="resources.html" class="nav-link" data-section="resources">Resources</a></li>
+             <li><a href="subject-challenges.html" class="nav-link" data-section="subject-challenges">Subject Challenges</a></li>
+          </ul>
+        </div>
+      </li>
+      <div class="topbarout">
+        <li><a href="profile.html" class="nav-link" data-section="routine">Profile</a></li>
+        <li><a href="inventory.html" class="nav-link" data-section="quests">Inventory</a></li>
+        <li><a href="shop.html" class="nav-link" data-section="achievements">Shop</a></li>
+        <li><a href="#" class="nav-link" data-section="leaderboard">Leaderboard</a></li>
+        <li><a href="settings.html" class="nav-link" data-section="settings">Settings</a></li>
+        <li><a><label class="switch">
+              <input checked="true" id="theme-toggle" type="checkbox" />
+              <span class="slider">
+              
+              </span>
+            </label></a></li>
+            div.
+            
+      </div>
+    </ul>
+  </div>
+  <div class="main-container">
+    <!-- Left Sidebar - Profile and Rank -->
+    <div class="sidebar">
+      <div class="profile-section">
+        <div class="avatar-container">
+          <img id="user-avatar" src="theme/avatars/default.png" alt="User Avatar">
+          <div class="level-badge">
+            <span id="level-number">1</span>
+          </div>
+        <i/div>
+        <div class="player-info">
+          <h2 id="username-display">Hi, User</h2>
+          <div class="stats-container">
+            <div class="coins-display">
+              <span>🪙</span>
+              <span id="coins-display">0</span>
+            </div>
+            <div class="experience-container">
+              <div class="experience-bar">
+                <div id="experience-fill"></div>
+              </div>
+              <div class="experience-text">
+                <span id="experience">0</span> / <span id="next-level">100</span> XP
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rank-section">
+        <h3>Your Rank</h3>
+        <div class="rank-display">
+          <div class="rank-image-container">
+            <img id="rank-image" src="theme/ranks/novice.png" alt="Current Rank">
+          </div>
+          <p class="rank-name" id="rank-name">Novice</p>
+        </div>
+        <div class="rank-progress">
+          <div class="progress-bar">
+            <div id="rank-progress-fill"></div>
+          </div>
+          <p>Progress to next rank: <span id="rank-progress-text">0%</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="content-area">
+      <!-- Daily Challenges Section -->
+      <div class="challenges-section">
+        <h2>Daily Challenges</h2>
+        <div id="challenges-container">
+          <!-- Challenges will be populated here -->
+        </div>
+      </div>
+
+      <!-- Subject Progress Section -->
+      <div class="progress-section">
+        <h2>Subject Progress</h2>
+        <div id="progress-container">
+          <!-- Subject progress will be populated here -->
+        </div>
+      </div>
+
+      <!-- Special Challenges Section -->
+      <div class="special-challenges">
+        <h2>Special Challenges</h2>
+        <div id="special-challenges-container">
+          <!-- Special challenges will be populated here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Sidebar - Achievements and Leaderboard -->
+    <div class="sidebar">
+      <div class="achievements-panel">
+        <h2>Recent Achievements</h2>
+        <div id="achievements-container">
+          <!-- Achievements will be populated here -->
+        </div>
+      </div>
+
+      <div class="leaderboard-panel">
+        <h2>Top Students</h2>
+        <div id="leaderboard-container">
+          <!-- Leaderboard will be populated here -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Chatbot Dialog -->
+  <div id="chatbot-dialog" class="chatbot-dialog">
+    <div class="chatbot-header">
+      <div class="chatbot-title">
+        <i class="fas fa-robot"></i>
+        Study Assistant
+      </div>
+      <div class="chatbot-controls">
+        <button id="minimize-chat" class="control-btn">
+          <i class="fas fa-minus"></i>
+        </button>
+        <button id="close-chat" class="control-btn">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+    <div class="chatbot-messages">
+      <!-- Messages will be added here -->
+    </div>
+    <div class="chatbot-input-container">
+      <input type="text" class="chatbot-input" placeholder="Ask Something....">
+      <button class="chatbot-send-btn">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Add this before the closing body tag -->
+</body>
+<script src="script.js"></script>
+<script src="challenges.js"></script>
+<script type="module">
+    import config from './config.js';
+    import ChatBot from './chatbot.js';
+    
+    // Initialize chatbot when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        window.chatbot = new ChatBot();
+    });
+</script>
+</html>

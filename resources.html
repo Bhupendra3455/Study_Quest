@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Resources - Study Focus</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="resources.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <ul>
+            <div class="topbarout">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="challenges.html"><i class="fas fa-trophy"></i> Challenges</a></li>
+                <li><a href="shop.html"><i class="fas fa-store"></i> Shop</a></li>
+                <li><a href="inventory.html"><i class="fas fa-backpack"></i> Inventory</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </div>
+            <div class="topbarout">
+                <li>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </li>
+                <li><button id="logout"><i class="fas fa-sign-out-alt"></i> Logout</button></li>
+            </div>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="avatar-container">
+                    <img id="user-avatar" src="theme/avatars/default.png" alt="User Avatar">
+                    <div class="level-badge" id="level-number">1</div>
+                </div>
+                <h2 id="username-display">Username</h2>
+                <div class="stats-container">
+                    <div class="coins-display">
+                        <i class="fas fa-coins"></i>
+                        <span id="coins">0</span>
+                    </div>
+                    <div class="experience-container">
+                        <div class="experience-bar">
+                            <div class="experience-fill" id="experience-fill"></div>
+                        </div>
+                        <div class="experience-text">
+                            <span id="experience">0</span> / <span id="next-level">100</span> XP
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-area">
+            <div class="resources-content">
+                <!-- Upload Section -->
+                <div class="upload-section">
+                    <h2>Upload Study Resources</h2>
+                    <div class="upload-container">
+                        <div class="upload-area" id="drop-zone">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag and drop files here or click to browse</p>
+                            <input type="file" id="file-input" multiple hidden>
+                        </div>
+                        <div class="upload-options">
+                            <div class="resource-type">
+                                <label>Resource Type:</label>
+                                <select id="resource-type">
+                                    <option value="notes">Notes</option>
+                                    <option value="question-paper">Question Paper</option>
+                                    <option value="assignment">Assignment</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="subject">
+                                <label>Subject:</label>
+                                <select id="subject">
+                                    <option value="math">Mathematics</option>
+                                    <option value="science">Science</option>
+                                    <option value="english">English</option>
+                                    <option value="history">History</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources List -->
+                <div class="resources-list">
+                    <div class="resources-header">
+                        <h2>Your Study Resources</h2>
+                        <div class="filter-controls">
+                            <select id="filter-type">
+                                <option value="all">All Types</option>
+                                <option value="notes">Notes</option>
+                                <option value="question-paper">Question Papers</option>
+                                <option value="assignment">Assignments</option>
+                            </select>
+                            <select id="filter-subject">
+                                <option value="all">All Subjects</option>
+                                <option value="math">Mathematics</option>
+                                <option value="science">Science</option>
+                                <option value="english">English</option>
+                                <option value="history">History</option>
+                            </select>
+                            <input type="text" id="search-resources" placeholder="Search resources...">
+                        </div>
+                    </div>
+                    <div class="resources-grid" id="resources-grid">
+                        <!-- Resources will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Sidebar -->
+        <div class="sidebar">
+            <div class="rank-section">
+                <h3>Your Rank</h3>
+                <div class="rank-display">
+                    <div class="rank-image-container">
+                        <img id="rank-image" src="theme/ranks/novice.png" alt="Rank">
+                    </div>
+                    <div class="rank-name" id="rank-name">Novice</div>
+                    <div class="rank-progress">
+                        <div class="progress-bar">
+                            <div id="rank-progress-fill"></div>
+                        </div>
+                        <p id="rank-progress-text">0%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="resources.js"></script>
+</body>
+</html> 

@@ -1,0 +1,380 @@
+/* Profile Page Styles */
+.profile-content {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Profile Header */
+.profile-header {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.profile-info h1 {
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 2em;
+}
+
+.profile-rank {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.profile-rank img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.profile-rank span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-item i {
+    font-size: 1.5em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.stat-item label {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+/* Stats Card */
+.stats-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.stats-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-box {
+    background: var(--background-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-box h3 {
+    color: var(--text-color);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--card-border);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-hover));
+    border-radius: 5px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    color: var(--text-color);
+    font-size: 0.9em;
+}
+
+.streak-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: var(--text-color);
+}
+
+.streak-display i {
+    color: var(--primary-color);
+}
+
+/* Achievements Card */
+.achievements-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.achievements-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+}
+
+.achievement-item {
+    background: var(--background-color);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+}
+
+.achievement-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-background);
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.achievement-icon i {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.achievement-name {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.achievement-progress {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+/* History Card */
+.history-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.history-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.history-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.history-item {
+    position: relative;
+    padding-bottom: 20px;
+    border-left: 2px solid var(--primary-color);
+}
+
+.history-item:last-child {
+    padding-bottom: 0;
+}
+
+.history-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.history-date {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.history-content {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+/* Subjects Card */
+.subjects-card {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.subjects-card h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.subject-item {
+    background: var(--background-color);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.subject-item:hover {
+    transform: translateY(-5px);
+}
+
+.subject-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-background);
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.subject-icon i {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.subject-name {
+    color: var(--text-color);
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.subject-stats {
+    color: var(--text-color);
+    opacity: 0.8;
+    font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .stats-grid,
+    .achievements-grid,
+    .subjects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.profile-content > div {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.profile-content > div:nth-child(1) { animation-delay: 0.1s; }
+.profile-content > div:nth-child(2) { animation-delay: 0.2s; }
+.profile-content > div:nth-child(3) { animation-delay: 0.3s; }
+.profile-content > div:nth-child(4) { animation-delay: 0.4s; }
+.profile-content > div:nth-child(5) { animation-delay: 0.5s; }
+</rewritten_file> 

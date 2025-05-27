@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Focus Inventory - Your Items</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="inventory.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Study Focus</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="shop.html" class="nav-link">
+                    <i class="fas fa-store"></i> Shop
+                </a>
+                <a href="inventory.html" class="nav-link active">
+                    <i class="fas fa-box-open"></i> Inventory
+                </a>
+            </div>
+            <div class="nav-profile">
+                <div class="profile-avatar">
+                    <img src="default-avatar.png" alt="Profile Avatar" id="profile-avatar">
+                </div>
+                <div class="coin-display">
+                    <i class="fas fa-coins"></i>
+                    <span id="coin-balance">1000</span>
+                </div>
+                <div class="level-display">
+                    <i class="fas fa-star"></i>
+                    <span id="level-display">Level 1</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="inventory-header">
+            <h1>Your Inventory</h1>
+            <p>Manage and use your collected items</p>
+        </div>
+
+        <div class="inventory-categories">
+            <button class="category-btn active" data-category="powerups">
+                <i class="fas fa-bolt"></i> Power-ups
+            </button>
+            <button class="category-btn" data-category="companions">
+                <i class="fas fa-paw"></i> Study Companions
+            </button>
+            <button class="category-btn" data-category="themes">
+                <i class="fas fa-palette"></i> Themes
+            </button>
+            <button class="category-btn" data-category="avatars">
+                <i class="fas fa-user-circle"></i> Avatars
+            </button>
+        </div>
+
+        <div class="inventory-grid" id="inventory-items">
+            <!-- Items will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="inventory.js"></script>
+</body>
+</html> 

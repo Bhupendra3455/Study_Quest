@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Quest Shop</title>
+    <link rel="stylesheet" href="shop.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                Study Quest
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                </a>
+                <a href="inventory.html" class="nav-link">
+                    <i class="fas fa-box-open"></i>
+                    Inventory
+                </a>
+            </div>
+            <div class="nav-profile">
+                <div class="coin-display">
+                    <i class="fas fa-coins"></i>
+                    <span id="coin-balance">0</span>
+                </div>
+                <div class="profile-avatar">
+                    <img id="profile-avatar" src="theme/avatars/default.png" alt="User Avatar">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Shop Header -->
+        <div class="shop-header">
+            <h1>Study Quest Shop</h1>
+            <p>Enhance your learning journey with powerful items!</p>
+        </div>
+
+        <!-- Shop Categories -->
+        <div class="shop-categories">
+            <button class="category-btn active" data-category="pets">
+                <i class="fas fa-paw"></i>
+                Study Pets
+            </button>
+            <button class="category-btn" data-category="powerups">
+                <i class="fas fa-bolt"></i>
+                Power-ups
+            </button>
+            <button class="category-btn" data-category="themes">
+                <i class="fas fa-paint-brush"></i>
+                Themes
+            </button>
+            <button class="category-btn" data-category="avatars">
+                <i class="fas fa-user-circle"></i>
+                Avatars
+            </button>
+        </div>
+
+        <!-- Shop Items Grid -->
+        <div id="shop-items" class="shop-grid">
+            <!-- Items will be populated here -->
+        </div>
+    </div>
+
+    <!-- Purchase Modal -->
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <h2>Confirm Purchase</h2>
+            <p id="modal-message"></p>
+            <div class="modal-buttons">
+                <button id="confirm-purchase" class="modal-btn confirm-btn">Confirm</button>
+                <button id="cancel-purchase" class="modal-btn cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sound Effects -->
+    <audio id="purchase-sound" src="sounds/purchase.mp3"></audio>
+    <audio id="error-sound" src="sounds/error.mp3"></audio>
+    <audio id="coin-sound" src="sounds/coin.mp3"></audio>
+
+    <script src="shop.js"></script>
+</body>
+</html> 

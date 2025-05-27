@@ -1,0 +1,256 @@
+/* Resources Page Styles */
+.resources-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Upload Section */
+.upload-section {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.upload-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.upload-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.upload-area {
+    border: 2px dashed var(--primary-color);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--background-color);
+}
+
+.upload-area:hover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+}
+
+.upload-area i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.upload-area:hover i {
+    color: var(--background-dark);
+}
+
+.upload-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.resource-type, .subject {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resource-type label, .subject label {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.resource-type select, .subject select {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 10px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Resources List */
+.resources-list {
+    background: var(--card-background);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.resources-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.resources-header h2 {
+    color: var(--primary-color);
+}
+
+.filter-controls {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.filter-controls select, .filter-controls input {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
+    color: var(--text-color);
+    padding: 8px 15px;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+}
+
+.filter-controls input {
+    min-width: 200px;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.resource-card {
+    background: var(--background-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px var(--shadow-color);
+}
+
+.resource-icon {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.resource-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resource-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.resource-meta {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+}
+
+.resource-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.resource-actions button {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.resource-actions button:hover {
+    transform: scale(1.1);
+}
+
+/* File Type Icons */
+.file-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.file-icon.pdf {
+    background: #ff4444;
+    color: white;
+}
+
+.file-icon.doc {
+    background: #4285f4;
+    color: white;
+}
+
+.file-icon.img {
+    background: #34a853;
+    color: white;
+}
+
+.file-icon.other {
+    background: #fbbc05;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .resources-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+    }
+
+    .filter-controls select, .filter-controls input {
+        width: 100%;
+    }
+
+    .upload-options {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Drag and Drop Styles */
+.upload-area.dragover {
+    background: var(--primary-color);
+    color: var(--background-dark);
+}
+
+.upload-area.dragover i {
+    color: var(--background-dark);
+}
+
+/* Loading Animation */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.upload-area.uploading {
+    animation: pulse 1s infinite;
+} 
