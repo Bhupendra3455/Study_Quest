@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize file upload
     initializeFileUpload();
     
-    // Load local resources instead of stored resources
-    loadLocalResources();
+    // Load resources
+    loadResources();
     
     // Initialize filters
     initializeFilters();
@@ -271,13 +271,20 @@ function getFileIcon(fileType) {
     }
 }
 
-function downloadResource(path) {
-    const link = document.createElement('a');
-    link.href = path;
-    link.download = path.split('/').pop();
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+function downloadResource(resourceId) {
+    const resources = JSON.parse(localStorage.getItem('studyResources') || '[]');
+    const resource = resources.find(r => r.id === resourceId);
+    
+    if (resource) {
+        const url = URL.createObjectURL(resource.file);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = resource.name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
 }
 
 function deleteResource(resourceId) {
@@ -294,164 +301,27 @@ function initializeFilters() {
     const filterType = document.getElementById('filter-type');
     const filterSubject = document.getElementById('filter-subject');
     const searchInput = document.getElementById('search-resources');
-
-    filterType.addEventListener('change', loadLocalResources);
-    filterSubject.addEventListener('change', loadLocalResources);
-    searchInput.addEventListener('input', loadLocalResources);
+    
+    filterType.addEventListener('change', applyFilters);
+    filterSubject.addEventListener('change', applyFilters);
+    searchInput.addEventListener('input', applyFilters);
 }
 
-// Local Resources Data Structure
-const localResources = {
-    math: {
-        algebra: {
-            notes: [
-                { name: 'Quadratic Equations.pdf', path: 'resources/math/algebra/notes/quadratic.pdf' },
-                { name: 'Linear Equations.pdf', path: 'resources/math/algebra/notes/linear.pdf' }
-            ],
-            practice: [
-                { name: 'Practice Set 1.pdf', path: 'resources/math/algebra/practice/set1.pdf' },
-                { name: 'Practice Set 2.pdf', path: 'resources/math/algebra/practice/set2.pdf' }
-            ]
-        },
-        calculus: {
-            notes: [
-                { name: 'Derivatives.pdf', path: 'resources/math/calculus/notes/derivatives.pdf' },
-                { name: 'Integrals.pdf', path: 'resources/math/calculus/notes/integrals.pdf' }
-            ]
-        }
-    },
-    science: {
-        physics: {
-            notes: [
-                { name: 'Motion Laws.pdf', path: 'resources/science/physics/notes/motion.pdf' },
-                { name: 'Energy.pdf', path: 'resources/science/physics/notes/energy.pdf' }
-            ],
-            practice: [
-                { name: 'Physics Problems.pdf', path: 'resources/science/physics/practice/problems.pdf' }
-            ]
-        },
-        chemistry: {
-            notes: [
-                { name: 'Periodic Table.pdf', path: 'resources/science/chemistry/notes/periodic.pdf' }
-            ]
-        }
-    },
-    english: {
-        grammar: {
-            notes: [
-                { name: 'Tenses.pdf', path: 'resources/english/grammar/notes/tenses.pdf' }
-            ],
-            practice: [
-                { name: 'Grammar Exercises.pdf', path: 'resources/english/grammar/practice/exercises.pdf' }
-            ]
-        }
-    }
-};
-
-// Add these functions to handle local resources
-function loadLocalResources() {
+function applyFilters() {
+    const filterType = document.getElementById('filter-type').value;
+    const filterSubject = document.getElementById('filter-subject').value;
+    const searchQuery = document.getElementById('search-resources').value.toLowerCase();
+    
+    const resources = JSON.parse(localStorage.getItem('studyResources') || '[]');
+    const filteredResources = resources.filter(resource => {
+        const matchesType = filterType === 'all' || resource.type === filterType;
+        const matchesSubject = filterSubject === 'all' || resource.subject === filterSubject;
+        const matchesSearch = resource.name.toLowerCase().includes(searchQuery);
+        
+        return matchesType && matchesSubject && matchesSearch;
+    });
+    
     const resourcesGrid = document.getElementById('resources-grid');
     resourcesGrid.innerHTML = '';
-
-    const subject = document.getElementById('filter-subject').value;
-    const type = document.getElementById('filter-type').value;
-    const searchQuery = document.getElementById('search-resources').value.toLowerCase();
-
-    let resources = [];
-
-    // Function to flatten the resource structure
-    function flattenResources(obj, path = []) {
-        Object.entries(obj).forEach(([key, value]) => {
-            if (Array.isArray(value)) {
-                // This is a resource array
-                value.forEach(resource => {
-                    resources.push({
-                        name: resource.name,
-                        path: resource.path,
-                        subject: path[0] || 'other',
-                        type: path[path.length - 1] || 'other',
-                        category: path[1] || 'general'
-                    });
-                });
-            } else if (typeof value === 'object') {
-                // This is a nested category
-                flattenResources(value, [...path, key]);
-            }
-        });
-    }
-
-    flattenResources(localResources);
-
-    // Apply filters
-    resources = resources.filter(resource => {
-        const matchesSubject = subject === 'all' || resource.subject === subject;
-        const matchesType = type === 'all' || resource.type === type;
-        const matchesSearch = resource.name.toLowerCase().includes(searchQuery);
-        return matchesSubject && matchesType && matchesSearch;
-    });
-
-    // Display filtered resources
-    resources.forEach(resource => {
-        const card = createResourceCard(resource);
-        resourcesGrid.appendChild(card);
-    });
-
-    // Update filter options
-    updateFilterOptions(resources);
-}
-
-function createResourceCard(resource) {
-    const card = document.createElement('div');
-    card.className = 'resource-card';
-    
-    card.innerHTML = `
-        <div class="file-icon ${getFileType(resource.name)}">
-            <i class="fas ${getFileIcon(getFileType(resource.name))}"></i>
-        </div>
-        <div class="resource-info">
-            <div class="resource-name">${resource.name}</div>
-            <div class="resource-meta">
-                <span>${resource.category}</span>
-                <span>${resource.type}</span>
-            </div>
-        </div>
-        <div class="resource-actions">
-            <button onclick="openResource('${resource.path}')" title="Open">
-                <i class="fas fa-external-link-alt"></i>
-            </button>
-            <button onclick="downloadResource('${resource.path}')" title="Download">
-                <i class="fas fa-download"></i>
-            </button>
-        </div>
-    `;
-    
-    return card;
-}
-
-function updateFilterOptions(resources) {
-    const subjectFilter = document.getElementById('filter-subject');
-    const typeFilter = document.getElementById('filter-type');
-
-    // Get unique subjects and types
-    const subjects = [...new Set(resources.map(r => r.subject))];
-    const types = [...new Set(resources.map(r => r.type))];
-
-    // Update subject filter options
-    const currentSubject = subjectFilter.value;
-    subjectFilter.innerHTML = '<option value="all">All Subjects</option>';
-    subjects.forEach(subject => {
-        subjectFilter.innerHTML += `<option value="${subject}" ${currentSubject === subject ? 'selected' : ''}>${subject}</option>`;
-    });
-
-    // Update type filter options
-    const currentType = typeFilter.value;
-    typeFilter.innerHTML = '<option value="all">All Types</option>';
-    types.forEach(type => {
-        typeFilter.innerHTML += `<option value="${type}" ${currentType === type ? 'selected' : ''}>${type}</option>`;
-    });
-}
-
-function openResource(path) {
-    window.open(path, '_blank');
-}
-
+    filteredResources.forEach(resource => addResourceToDisplay(resource));
+} 

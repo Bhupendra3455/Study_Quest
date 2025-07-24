@@ -226,7 +226,7 @@ const shopItems = {
                 price: 1500,
                 rarity: 'epic',
                 category: 'avatars',
-                imagePath: 'avatar11.jpg'
+                imagePath: 'theme/avatars/avatar11.png'
             },
             {
                 id: 'techWizard',
@@ -235,7 +235,7 @@ const shopItems = {
                 price: 1500,
                 rarity: 'epic',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar17.jpg'
+                imagePath: 'theme/avatars/avatar2.png'
             },
             {
                 id: 'scienceGenius',
@@ -244,7 +244,7 @@ const shopItems = {
                 price: 1200,
                 rarity: 'rare',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar3.jpg'
+                imagePath: 'theme/avatars/avatar3.png'
             }
         ],
         fantasy: [
@@ -255,7 +255,7 @@ const shopItems = {
                 price: 2000,
                 rarity: 'legendary',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar4.jpg'
+                imagePath: 'theme/avatars/avatar4.png'
             },
             {
                 id: 'dragonStudent',
@@ -264,7 +264,7 @@ const shopItems = {
                 price: 1800,
                 rarity: 'epic',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar6.jpg'
+                imagePath: 'theme/avatars/avatar5.png'
             }
         ],
         professional: [
@@ -275,7 +275,7 @@ const shopItems = {
                 price: 1000,
                 rarity: 'rare',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar6.jpg'
+                imagePath: 'theme/avatars/avatar6.png'
             },
             {
                 id: 'teacherAvatar',
@@ -284,18 +284,18 @@ const shopItems = {
                 price: 1200,
                 rarity: 'rare',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar7.jpg'
+                imagePath: 'theme/avatars/avatar7.png'
             }
         ],
         cosmic: [
             {
-                id: 'DarkgalaxyExplorer',
+                id: 'galaxyExplorer',
                 name: 'Galaxy Explorer',
                 description: 'Explore knowledge',
                 price: 2000,
                 rarity: 'legendary',
                 category: 'avatars',
-                imagePath: 'theme/avatars/avatar9.jpg'
+                imagePath: 'theme/avatars/avatar9.png'
             },
             {
                 id: 'starStudent',
@@ -543,9 +543,6 @@ class Shop {
     }
 
     createAvatarCard(item) {
-        const inventory = JSON.parse(localStorage.getItem('inventory') || '[]');
-        const isPurchased = inventory.some(i => i.id === item.id);
-        
         return `
             <span class="rarity-badge rarity-${item.rarity}">${item.rarity}</span>
             <div class="avatar-image">
@@ -557,8 +554,8 @@ class Shop {
                 <i class="fas fa-coins"></i>
                 <span>${item.price}</span>
             </div>
-            <button class="buy-btn ${isPurchased ? 'purchased' : ''}" data-item-id="${item.id}" ${isPurchased ? 'disabled' : ''}>
-                ${isPurchased ? 'Purchased' : 'Purchase Avatar'}
+            <button class="buy-btn" data-item-id="${item.id}">
+                Purchase Avatar
             </button>
         `;
     }
