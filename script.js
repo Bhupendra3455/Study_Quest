@@ -543,16 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     contents: [{
                         "role": "user",
                         "parts": [{ 
-                            text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn and maintain focus while studying. Your responses should be:
-
-1. Educational and study-focused
-2. Clear and concise (max 100 words)
-3. Formatted in bullet points
-4. Relevant to academic subjects and study techniques
-5. Encouraging and motivating
-6. Practical and actionable
-
-Please provide a helpful response to this question:
+                            text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn so the reponse of every question should be short and on point my question is 
 
 ${message}
 
