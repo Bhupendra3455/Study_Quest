@@ -29,23 +29,23 @@ document.addEventListener("DOMContentLoaded", function () {
     initializeExperienceBar();
 
     // Add test button
-    // const testButton = document.createElement('button');
-    // testButton.textContent = 'Test XP Gain';
-    // testButton.onclick = () => {
-    //     console.log('Test button clicked');
-    //     gainExperience(25);
-    // };
-    // testButton.style.position = 'fixed';
-    // testButton.style.bottom = '20px';
-    // testButton.style.left = '20px';
-    // testButton.style.zIndex = '1000';
-    // testButton.style.padding = '10px 20px';
-    // testButton.style.background = 'var(--primary-color)';
-    // testButton.style.color = 'white';
-    // testButton.style.border = 'none';
-    // testButton.style.borderRadius = '5px';
-    // testButton.style.cursor = 'pointer';
-    // document.body.appendChild(testButton);
+    const testButton = document.createElement('button');
+    testButton.textContent = 'Test XP Gain';
+    testButton.onclick = () => {
+        console.log('Test button clicked');
+        gainExperience(25);
+    };
+    testButton.style.position = 'fixed';
+    testButton.style.bottom = '20px';
+    testButton.style.left = '20px';
+    testButton.style.zIndex = '1000';
+    testButton.style.padding = '10px 20px';
+    testButton.style.background = 'var(--primary-color)';
+    testButton.style.color = 'white';
+    testButton.style.border = 'none';
+    testButton.style.borderRadius = '5px';
+    testButton.style.cursor = 'pointer';
+    document.body.appendChild(testButton);
 });
 
 function updateUserInterface(userData) {
@@ -497,6 +497,33 @@ document.addEventListener('DOMContentLoaded', function() {
         const creationKeywords = [
             "who created you",
             "who made you",
+            "who developed you",
+            "who built you",
+            "who designed you",
+            "who programmed you",
+            "who is your creator",
+            "who is your developer",
+            "who is your maker",
+            "who is your designer",
+            "who is your programmer",
+            "tell me about your creator",
+            "tell me about your developer",
+            "tell me about your maker",
+            "tell me about your designer",
+            "tell me about your programmer",
+            "who are you created by",
+            "who are you made by",
+            "who are you developed by",
+            "who are you built by",
+            "who are you designed by",
+            "who are you programmed by",
+            "your creator",
+            "your developer",
+            "your maker",
+            "your designer",
+            "your programmer",
+            "created you",
+            "developed you",
             "made you",
             "built you",
             "designed you",
@@ -519,9 +546,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn and maintain focus while studying. Your responses should be:
 
 1. Educational and study-focused
-2. Clear and concise 
+2. Clear and concise (max 100 words)
 3. Formatted in bullet points
-
+4. Relevant to academic subjects and study techniques
+5. Encouraging and motivating
+6. Practical and actionable
 
 Please provide a helpful response to this question:
 
@@ -530,7 +559,9 @@ ${message}
 Remember to:
 • Keep responses under 100 words
 • Use bullet points
-• Be educational and engaging only provide necessary information don't provide not neceesary things`
+• Focus on study-related content
+• Be encouraging and supportive
+• Provide practical advice when applicable`
                         }]
                     }]
                 })
