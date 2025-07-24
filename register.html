@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="register.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=b:wghtb@400..900&display=swap" rel="stylesheet">
-    <body>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
 </head>
+<body>
     <div class="registrationbox">
         <h2>Join the Study Quest</h2>
         <form id="register-form">
@@ -17,10 +17,10 @@
                 <label>Choose Your Avatar:</label>
                 <div class="avatar-grid">
                     <div class="avatar-option selected" data-avatar="avatar1.jpg">
-                        <img src="theme/avatars/avatar1.jpg" alt="Avatar 1">
+                        <img src="avatar1.jpg" alt="Avatar 1">
                     </div>
                     <div class="avatar-option" data-avatar="avatar2.jpg">
-                        <img src="theme/avatars/avatar2.jpg" alt="Avatar 2">
+                        <img src="avatar2.jpg" alt="Avatar 2">
                     </div>
                     <!-- <div class="avatar-option" data-avatar="avatar3.jpg">
                         <img src="avatar3.jpg" alt="Avatar 3">
@@ -80,9 +80,9 @@
             <div class="form-group">
                 <label for="education-level">Education Level:</label>
                 <select id="education-level" name="education-level" required>
-                    <b value="">Select your class</option>
-                        <option value="6">Class 6</option>
-                        <optgroup value="5">Class 5</option>
+                    <option value="">Select your class</option>
+                    <option value="5">Class 5</option>
+                    <option value="6">Class 6</option>
                     <option value="7">Class 7</option>
                     <option value="8">Class 8</option>
                     <option value="9">Class 9</option>
@@ -94,16 +94,16 @@
             <div class="input">
                 <label for="subjects">Main Subjects:</label>
                 <select id="subjects" name="subjects" multiple required>
-                    <option  value="physics">Physics</option >
-                    <option  value="mathematics">Mathematics</option >
-                    <option  value="chemistry">Chemistry</option >
-                    <option  value="biology">Biology</option >
-                    <option  value="computer-science">Computer Science</option >
-                    <option  value="literature">Literature</option >
-                    <option  value="history">History</option >
-                    <div class="input">
+                    <option value="mathematics">Mathematics</option>
+                    <option value="physics">Physics</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="biology">Biology</option>
+                    <option value="computer-science">Computer Science</option>
+                    <option value="literature">Literature</option>
+                    <option value="history">History</option>
                 </select>
             </div>
+            <div class="input">
                 <label for="study-goals">Daily Study Goal (hours):</label>
                 <input type="number" id="study-goals" name="study-goals" min="1" max="12" required>
             </div>

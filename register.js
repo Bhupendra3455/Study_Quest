@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
         const educationLevel = document.getElementById("education-level").value;
-        const selectedAvatar = selectedAvatarInput.value;
+        const selectedAvatar = selectedAvatarInput.value || 'default.png';
 
         if (password !== document.getElementById("confirm-password").value) {
             errorMessage.textContent = "Passwords do not match!";
