@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     contents: [{
                         "role": "user",
                         "parts": [{ 
-                            text: `You are an expert study assistant AI for the Study Focus application, designed to help students learn so the reponse of every question should be short and on point my question is 
+                            text: `Suppose You are an expert study assistant AI for the Study Focus application, so the reponse of every question should be short and on point  and answer should be of 2 3 words my question is 
 
 ${message}
 
